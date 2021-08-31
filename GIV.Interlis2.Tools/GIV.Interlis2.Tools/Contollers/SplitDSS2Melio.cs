@@ -1,4 +1,5 @@
 ﻿using GIV.Interlis2.Tools.Domain;
+using GIV.Interlis2.Tools.IO;
 using GIV.Interlis2.Tools.Properties;
 using System;
 using System.Collections.Generic;
@@ -212,7 +213,9 @@ namespace GIV.Interlis2.Tools.Contollers
                     break; // TRANSFER node processed -> no need to loop further trough the root node
                 }
             }
-            xmlDocument.Save(runData.Output);
+
+            XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
+            //xmlDocument.Save(runData.Output);
 
             LoggerMessages.Add(Resources.SplitLogMessageConvertEndSuccess);
 

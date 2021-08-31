@@ -1,10 +1,7 @@
 ﻿using GIV.Interlis2.Tools.Domain;
+using GIV.Interlis2.Tools.IO;
 using GIV.Interlis2.Tools.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace GIV.Interlis2.Tools.Contollers
@@ -104,7 +101,9 @@ namespace GIV.Interlis2.Tools.Contollers
                     }
                 }
             }
-            xmlDocument.Save(runData.Output);
+
+            XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
+            //xmlDocument.Save(runData.Output);
 
             LoggerMessages.Add(Resources.ConvertLogMessageConvertEndSuccess);
 
