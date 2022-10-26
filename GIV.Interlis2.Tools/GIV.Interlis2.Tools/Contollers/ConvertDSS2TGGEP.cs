@@ -9,7 +9,7 @@ namespace GIV.Interlis2.Tools.Contollers
     class ConvertDSS2TGGEP : BaseController
     {
         // DEBUG:
-        // --type convertDSS2TGGEP --input "C:\_repos_GIT\GIV.Interlis2.Tools\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos_GIT\GIV.Interlis2.Tools\DebugData\TG_2020_GEP.xtf" --log "C:\_repos_GIT\GIV.Interlis2.Tools\DebugData\dss2tggep.log"
+        // --type convertDSS2TGGEP --input "C:\_repos\GIV.Interlis2.Tool\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\TG_2020_GEP.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\dss2tgmgep.log"
 
         #region Propertys and Attributs
         /// <summary>

@@ -11,7 +11,7 @@ namespace GIV.Interlis2.Tools.Contollers
     class SplitDSS2Melio : BaseController
     {
         // DEBUG
-        // --type splitDSS2Melio --input "C:\_repos_GIT\GIV.Interlis2.Tools\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos_GIT\GIV.Interlis2.Tools\DebugData\TG_2020_MEL_SPLIT.xtf" --log "C:\_repos_GIT\GIV.Interlis2.Tools\DebugData\dss2tgmelsplit.log"
+        // --type splitDSS2Melio --input "C:\_repos\GIV.Interlis2.Tool\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\TG_2020_SPLIT.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\dss2splitmelgep.log"
 
         #region Propertys and Attributs
         /// <summary>
@@ -335,7 +335,7 @@ namespace GIV.Interlis2.Tools.Contollers
                         CheckAndAddRemovableNode(node, "RohrprofilRef", pipeProfilsOIDList);
                         break;
                     case "Haltungspunkt":
-                        CheckAndAddRemovableNode(node, pipeProfilsOIDList);
+                        CheckAndAddRemovableNode(node, sectionPointsOIDList);
                         break;
                     default:
                         break;
