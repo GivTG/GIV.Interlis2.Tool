@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{79D8B138-74F1-4322-9318-E0F1204789C2}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GIV.Interlis2.Tools</RootNamespace>
-    <AssemblyName>GIV Interlis2 Tools</AssemblyName>
+    <RootNamespace>GIV.Interlis2.Tools.ConsoleApp</RootNamespace>
+    <AssemblyName>GIV Interlis2 Tools Console</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -15,7 +15,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\_debug\</OutputPath>
     <DefineConstants>DEBUG</DefineConstants>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -46,16 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contollers\AvailableControllers.cs" />
-    <Compile Include="Contollers\BaseController.cs" />
-    <Compile Include="Contollers\ConvertDSS2TGGEP.cs" />
-    <Compile Include="Contollers\SplitDSS2Melio.cs" />
-    <Compile Include="Contollers\ConvertDSS2TGMEL.cs" />
-    <Compile Include="Contollers\IController.cs" />
+    <Compile Include="..\GIV.Interlis2.Tools.Common\Properties\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="Domain\ArgumentParser.cs" />
     <Compile Include="Domain\ExitCode.cs" />
-    <Compile Include="Domain\RunData.cs" />
-    <Compile Include="IO\XmlWriteHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -67,12 +62,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GIV.Interlis2.Tools.Common\GIV.Interlis2.Tools.Common.csproj">
+      <Project>{dac1c7e6-f21d-4735-bf03-e51f670eccfc}</Project>
+      <Name>GIV.Interlis2.Tools.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29920.165
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIV.Interlis2.Tools", "GIV.Interlis2.Tools\GIV.Interlis2.Tools.csproj", "{79D8B138-74F1-4322-9318-E0F1204789C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIV.Interlis2.Tools.ConsoleApp", "GIV.Interlis2.Tools.ConsoleApp\GIV.Interlis2.Tools.ConsoleApp.csproj", "{79D8B138-74F1-4322-9318-E0F1204789C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIV.Interlis2.Tools.Common", "GIV.Interlis2.Tools.Common\GIV.Interlis2.Tools.Common.csproj", "{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Debug|x64.Build.0 = Debug|x64
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Release|x64.ActiveCfg = Release|x64
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Release|x64.Build.0 = Release|x64
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Debug|x64.ActiveCfg = Debug|x64
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Debug|x64.Build.0 = Debug|x64
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|x64.ActiveCfg = Release|Any CPU
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

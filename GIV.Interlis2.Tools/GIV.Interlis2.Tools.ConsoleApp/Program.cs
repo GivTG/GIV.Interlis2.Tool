@@ -1,13 +1,10 @@
-﻿using GIV.Interlis2.Tools.Contollers;
+﻿using GIV.Interlis2.Tools.Common.Contollers;
+using GIV.Interlis2.Tools.Common.Domain;
+using GIV.Interlis2.Tools.ConsoleApp.Properties;
 using GIV.Interlis2.Tools.Domain;
-using GIV.Interlis2.Tools.Properties;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GIV.Interlis2.Tools
 {

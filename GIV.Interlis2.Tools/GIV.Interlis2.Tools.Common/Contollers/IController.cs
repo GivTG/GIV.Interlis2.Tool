@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GIV.Interlis2.Tools.Contollers
+namespace GIV.Interlis2.Tools.Common.Contollers
 {
     /// <summary>
     /// Interface for all Controllers to work a command-type
     /// </summary>
-    interface IController : IDisposable
+    public interface IController : IDisposable
     {
         /// <summary>
         /// Get the name (type) for this controller

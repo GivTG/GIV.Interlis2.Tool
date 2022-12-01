@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIV.Interlis2.Tools.Contollers
+namespace GIV.Interlis2.Tools.Common.Contollers
 {
     /// <summary>
     /// Base Class for all Controllers
     /// Not for run a command
     /// </summary>
-    internal class BaseController : IController
+    public class BaseController : IController
     {
         #region Propertys and Attributs
         private string controllerName = "unknow";

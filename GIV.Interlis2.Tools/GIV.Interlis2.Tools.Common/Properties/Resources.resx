@@ -134,45 +134,9 @@
     <value>Start der Konvertierung von {0} zu {1}</value>
     <comment>{0} Input-Model-Tag; {1} Output-Model-Tag</comment>
   </data>
-  <data name="MainConsoleCantNotStartConvertErrorMessage" xml:space="preserve">
-    <value>Die Eingaben sind ungenügend um einen Befehl korrekt ausführen zu können.</value>
-  </data>
-  <data name="MainConsoleEndCommandErrorMessage" xml:space="preserve">
-    <value>Funktion [{0}] mit Meldungen beendet...</value>
-    <comment>{0} Command name</comment>
-  </data>
-  <data name="MainConsoleEndCommandSuccessMessage" xml:space="preserve">
-    <value>Funktion [{0}] beendet...</value>
-    <comment>{0} Command name</comment>
-  </data>
-  <data name="MainConsoleFileNotFoundErrorMessage" xml:space="preserve">
-    <value>Datei wurde nicht gefunden [{0}].</value>
-    <comment>{0} File Name</comment>
-  </data>
-  <data name="MainConsoleGeneralRuntimeMessage" xml:space="preserve">
-    <value>Bei der Ausführung ist ein Problem aufgetretten: [{0}].</value>
-    <comment>{0} Error Message or more details</comment>
-  </data>
-  <data name="MainConsoleLogFileMessage" xml:space="preserve">
-    <value>Log-Datei erstellt:</value>
-  </data>
-  <data name="MainConsoleMissingArgumentErrorMessage" xml:space="preserve">
-    <value>Ein benotigtes Argument [{0}] wurde nicht angegeben.</value>
-    <comment>{0} Parameter Name</comment>
-  </data>
-  <data name="MainConsolePressAnyKeyForExit" xml:space="preserve">
-    <value>Drücke eine belibige Taste für das Beenden der Konsole</value>
-  </data>
-  <data name="MainConsoleStartCommandMessage" xml:space="preserve">
-    <value>Funktion [{0}] wird gestartet...</value>
-    <comment>{0} Command name</comment>
-  </data>
-  <data name="MainConsoleTitle" xml:space="preserve">
-    <value>GIV-TG - Interlis2 Tool</value>
-  </data>
-  <data name="MainConsoleTypeNotFoundErrorMessage" xml:space="preserve">
-    <value>Der angegebene Typ [{0}] wurde nicht gefunden.</value>
-    <comment>{0} Type from input</comment>
+  <data name="ConvertLogMessageTitle1" xml:space="preserve">
+    <value>Start der Konvertierung von {0} zu {1}</value>
+    <comment>{0} Input-Model-Tag; {1} Output-Model-Tag</comment>
   </data>
   <data name="SplitControllerHelpTextMelioration" xml:space="preserve">
     <value>Filtert die nicht Meliorations relevanten Daten aus einer DSS 2020 Datei.</value>

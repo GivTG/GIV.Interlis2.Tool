@@ -1,12 +1,12 @@
-﻿using GIV.Interlis2.Tools.Domain;
-using GIV.Interlis2.Tools.IO;
-using GIV.Interlis2.Tools.Properties;
+﻿using GIV.Interlis2.Tools.Common.Domain;
+using GIV.Interlis2.Tools.Common.IO;
+using GIV.Interlis2.Tools.Common.Properties;
 using System;
 using System.Xml;
 
-namespace GIV.Interlis2.Tools.Contollers
+namespace GIV.Interlis2.Tools.Common.Contollers
 {
-    class ConvertDSS2TGGEP : BaseController
+    public class ConvertDSS2TGGEP : BaseController
     {
         // DEBUG:
         // --type convertDSS2TGGEP --input "C:\_repos\GIV.Interlis2.Tool\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\TG_2020_GEP.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\dss2tgmgep.log"

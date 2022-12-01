@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace GIV.Interlis2.Tools.IO
+namespace GIV.Interlis2.Tools.Common.IO
 {
     /// <summary>
     /// Helper for write XML Document

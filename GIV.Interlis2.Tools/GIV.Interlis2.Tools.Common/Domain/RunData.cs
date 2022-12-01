@@ -6,9 +6,12 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIV.Interlis2.Tools.Domain
+namespace GIV.Interlis2.Tools.Common.Domain
 {
-    internal class RunData
+    /// <summary>
+    /// Run Data object for console and ui
+    /// </summary>
+    public class RunData
     {
         /// <summary>
         /// All Datas are ready for run
