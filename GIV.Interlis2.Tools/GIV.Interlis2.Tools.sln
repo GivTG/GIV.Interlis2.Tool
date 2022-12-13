@@ -7,20 +7,36 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIV.Interlis2.Tools.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIV.Interlis2.Tools.Common", "GIV.Interlis2.Tools.Common\GIV.Interlis2.Tools.Common.csproj", "{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIV.Interlis2.Tools.App", "GIV.Interlis2.Tools.App\GIV.Interlis2.Tools.App.csproj", "{14282160-518C-4771-96CE-5729B614EC00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79D8B138-74F1-4322-9318-E0F1204789C2}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{79D8B138-74F1-4322-9318-E0F1204789C2}.Debug|Any CPU.Build.0 = Debug|x64
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Debug|x64.ActiveCfg = Debug|x64
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Debug|x64.Build.0 = Debug|x64
+		{79D8B138-74F1-4322-9318-E0F1204789C2}.Release|Any CPU.ActiveCfg = Release|x64
+		{79D8B138-74F1-4322-9318-E0F1204789C2}.Release|Any CPU.Build.0 = Release|x64
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Release|x64.ActiveCfg = Release|x64
 		{79D8B138-74F1-4322-9318-E0F1204789C2}.Release|x64.Build.0 = Release|x64
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Debug|x64.ActiveCfg = Debug|x64
 		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Debug|x64.Build.0 = Debug|x64
-		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|x64.ActiveCfg = Release|Any CPU
-		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|x64.Build.0 = Release|Any CPU
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|Any CPU.ActiveCfg = Release|x64
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|x64.ActiveCfg = Release|x64
+		{DAC1C7E6-F21D-4735-BF03-E51F670ECCFC}.Release|x64.Build.0 = Release|x64
+		{14282160-518C-4771-96CE-5729B614EC00}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{14282160-518C-4771-96CE-5729B614EC00}.Debug|x64.ActiveCfg = Debug|x64
+		{14282160-518C-4771-96CE-5729B614EC00}.Debug|x64.Build.0 = Debug|x64
+		{14282160-518C-4771-96CE-5729B614EC00}.Release|Any CPU.ActiveCfg = Release|x64
+		{14282160-518C-4771-96CE-5729B614EC00}.Release|x64.ActiveCfg = Release|x64
+		{14282160-518C-4771-96CE-5729B614EC00}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
