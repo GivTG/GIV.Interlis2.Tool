@@ -121,8 +121,8 @@
     <value>Konvertiert ein Interlis2-Datendatei vom Modell {0} zum Modell {1}.</value>
     <comment>{0} Input-Model-Tag; {1} Output-Model-Tag</comment>
   </data>
-  <data name="ConvertLogMessageConvertEndSuccess" xml:space="preserve">
-    <value>Konvertierung erfolgreich abgeschlossen.</value>
+  <data name="ConvertLogMessageHeaderInfo" xml:space="preserve">
+    <value>Protokoll-Datei zur Konvertierung</value>
   </data>
   <data name="ConvertLogMessageInputFile" xml:space="preserve">
     <value>Quell-Datei:</value>
@@ -130,13 +130,18 @@
   <data name="ConvertLogMessageOutputFile" xml:space="preserve">
     <value>Ziel-Datei:</value>
   </data>
+  <data name="ConvertLogMessageStartConvert" xml:space="preserve">
+    <value>Die Konvertierung wurde gestartet.</value>
+  </data>
   <data name="ConvertLogMessageTitle" xml:space="preserve">
-    <value>Start der Konvertierung von {0} zu {1}</value>
+    <value>Konvertierung von {0} zu {1}</value>
     <comment>{0} Input-Model-Tag; {1} Output-Model-Tag</comment>
   </data>
-  <data name="ConvertLogMessageTitle1" xml:space="preserve">
-    <value>Start der Konvertierung von {0} zu {1}</value>
-    <comment>{0} Input-Model-Tag; {1} Output-Model-Tag</comment>
+  <data name="ConvertLogWriterFooterMessageError" xml:space="preserve">
+    <value>Mit Fehler und/oder Warnungen beendet.</value>
+  </data>
+  <data name="ConvertLogWriterFooterMessageSuccess" xml:space="preserve">
+    <value>Ohne Meldungen beendet.</value>
   </data>
   <data name="LogFileReadOnlyMessage" xml:space="preserve">
     <value>Protokoll-Datei ist Schreibgeschützt</value>

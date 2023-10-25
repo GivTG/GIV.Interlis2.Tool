@@ -70,11 +70,11 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Konvertierung erfolgreich abgeschlossen..
+        ///   Looks up a localized string similar to Protokoll-Datei zur Konvertierung.
         /// </summary>
-        internal static string ConvertLogMessageConvertEndSuccess {
+        internal static string ConvertLogMessageHeaderInfo {
             get {
-                return ResourceManager.GetString("ConvertLogMessageConvertEndSuccess", resourceCulture);
+                return ResourceManager.GetString("ConvertLogMessageHeaderInfo", resourceCulture);
             }
         }
         
@@ -97,7 +97,16 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start der Konvertierung von {0} zu {1}.
+        ///   Looks up a localized string similar to Die Konvertierung wurde gestartet..
+        /// </summary>
+        internal static string ConvertLogMessageStartConvert {
+            get {
+                return ResourceManager.GetString("ConvertLogMessageStartConvert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Konvertierung von {0} zu {1}.
         /// </summary>
         internal static string ConvertLogMessageTitle {
             get {
@@ -106,11 +115,20 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start der Konvertierung von {0} zu {1}.
+        ///   Looks up a localized string similar to Mit Fehler und/oder Warnungen beendet..
         /// </summary>
-        internal static string ConvertLogMessageTitle1 {
+        internal static string ConvertLogWriterFooterMessageError {
             get {
-                return ResourceManager.GetString("ConvertLogMessageTitle1", resourceCulture);
+                return ResourceManager.GetString("ConvertLogWriterFooterMessageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ohne Meldungen beendet..
+        /// </summary>
+        internal static string ConvertLogWriterFooterMessageSuccess {
+            get {
+                return ResourceManager.GetString("ConvertLogWriterFooterMessageSuccess", resourceCulture);
             }
         }
         

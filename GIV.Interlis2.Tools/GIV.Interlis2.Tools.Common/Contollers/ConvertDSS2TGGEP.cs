@@ -82,11 +82,11 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         #region Execute
         public override bool Execute()
         {
-            LoggerMessages.Clear();
-
-            LoggerMessages.Add(String.Format(Resources.ConvertLogMessageTitle, INPUTMODELL, OUTPUTMODELLNAME));
-            LoggerMessages.Add($"{Resources.ConvertLogMessageInputFile} {runData.Input}");
-            LoggerMessages.Add($"{Resources.ConvertLogMessageOutputFile} {runData.Output}");
+            ClearLogMessages();
+            AddLogFileHeader();
+            LogInfo(String.Format(Resources.ConvertLogMessageTitle, INPUTMODELL, OUTPUTMODELLNAME));
+            LogInfo($"{Resources.ConvertLogMessageInputFile} {runData.Input}");
+            LogInfo($"{Resources.ConvertLogMessageOutputFile} {runData.Output}");
 
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(runData.Input);
@@ -105,7 +105,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
             //xmlDocument.Save(runData.Output);
 
-            LoggerMessages.Add(Resources.ConvertLogMessageConvertEndSuccess);
+            AddLogFileFooter();
 
             return true;
         }

@@ -245,7 +245,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                         ViewLogWriteLine(Resources.EndCommandErrorMessage, controller.GetName());
                     }
                     // Write Log Infos
-                    File.AppendAllLines(runData.LogFile, controller.LoggerMessages);
+                    File.WriteAllLines(runData.LogFile, controller.LoggerMessages);
                     ViewLogWriteLine($"{Resources.LogFileMessage} {runData.LogFile}");
                 }
             }
@@ -311,7 +311,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                 var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inputFilePath);
 
                 // use logFilePath (not LogFilePath) to avoid multiple calls of UpdateConvertEnabled()
-                logFilePath = Path.Combine(directoryName, $"{fileNameWithoutExtension}_{GetActionNameShort()}.log");
+                logFilePath = Path.Combine(directoryName, $"{fileNameWithoutExtension}_GIV_{GetActionNameShort()}.log");
                 OnPropertyChanged(nameof(LogFilePath));
             }
             catch { } // do nothing

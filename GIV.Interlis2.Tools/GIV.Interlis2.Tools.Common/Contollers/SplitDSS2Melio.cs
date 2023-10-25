@@ -179,11 +179,12 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         #region Execute
         public override bool Execute()
         {
-            LoggerMessages.Clear();
-
-            LoggerMessages.Add(string.Format(Resources.SplitLogMessageTitle, FILTERNAME));
-            LoggerMessages.Add($"{Resources.ConvertLogMessageInputFile} {runData.Input}");
-            LoggerMessages.Add($"{Resources.ConvertLogMessageOutputFile} {runData.Output}");
+            ClearLogMessages();
+            AddLogFileHeader();
+            LogInfo(String.Format(Resources.SplitLogMessageTitle, FILTERNAME));
+            LogInfo($"{Resources.ConvertLogMessageInputFile} {runData.Input}");
+            LogInfo($"{Resources.ConvertLogMessageOutputFile} {runData.Output}");
+            LogStartConvert();
 
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(runData.Input);
@@ -217,7 +218,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
             //xmlDocument.Save(runData.Output);
 
-            LoggerMessages.Add(Resources.SplitLogMessageConvertEndSuccess);
+            AddLogFileFooter();
 
             return true;
         }

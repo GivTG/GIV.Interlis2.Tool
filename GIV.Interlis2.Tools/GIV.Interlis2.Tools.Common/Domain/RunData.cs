@@ -109,8 +109,16 @@ namespace GIV.Interlis2.Tools.Common.Domain
                 throw new Exception(Resources.OutputFileReadOnlyMessage);
             }
 
-            Output = output;
-            OutputOverwrite = canOverwrite;
+            if (!File.Exists(output))
+            {
+                OutputOverwrite = true;
+            }
+            else
+            {
+                OutputOverwrite = canOverwrite;
+            }
+
+            Output = output;            
             CheckData();
         }
 
@@ -132,8 +140,15 @@ namespace GIV.Interlis2.Tools.Common.Domain
                 throw new Exception(Resources.LogFileReadOnlyMessage);
             }
 
+            if (!File.Exists(logfile)) {
+                LogFileOverwrite = true;
+            }
+            else
+            {
+                LogFileOverwrite = canOverwrite;
+            }
+
             LogFile = logfile;
-            LogFileOverwrite = canOverwrite;
             CheckData();
         }
 

@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GIV.Interlis2.Tools.Common.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GIV.Interlis2.Tools.Common.Contollers
 {
@@ -19,7 +21,30 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         public string LogPath { get; private set; } = @"C:\Temp\CreaterLogFile.txt";
 
-        public List<string> LoggerMessages { get; private set; } = new List<string>(); 
+        public List<string> LoggerMessages { get; private set; } = new List<string>();
+
+        private int errorCount;
+        /// <summary>
+        /// Count of errors.
+        /// </summary>
+        public int ErrorCount => errorCount;
+
+        /// <summary>
+        /// Returns true if HasErrors count > 0
+        /// </summary>
+        public bool HasErrors => errorCount > 0;
+
+        private int warningCount;
+        /// <summary>
+        /// Count of warnings.
+        /// </summary>
+        public int WarningCount => warningCount;
+
+        /// <summary>
+        /// Returns true if HasWarnings Count > 0
+        /// </summary>
+        public bool HasWarnings => warningCount > 0;
+        private int infoCount;
         #endregion
 
         /// <summary>
@@ -115,5 +140,78 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             // GC.SuppressFinalize(this);
         }
         #endregion
+
+        #region LogMessages
+        /// <summary>
+        /// Create Header-Informations for Log-File
+        /// </summary>
+        internal void AddLogFileHeader()
+        {
+            AddLogMessage("** GIV - Interlis2 Tool - Logger  **");
+            AddLogMessage($"** {DateTime.Now:dd.MM.yyyy HH:mm:ss} - {Resources.ConvertLogMessageHeaderInfo} **");
+            AddLogMessage(String.Empty);
+        }
+
+        internal void AddLogFileFooter()
+        {
+            AddLogMessage(String.Empty);
+            AddLogMessage($"{DateTime.Now} - {((HasErrors || HasWarnings) ? Resources.ConvertLogWriterFooterMessageError : Resources.ConvertLogWriterFooterMessageSuccess)}");
+        }
+
+        /// <summary>
+        /// Clear Log-Messages
+        /// </summary>
+        internal void ClearLogMessages()
+        {
+            LoggerMessages.Clear();
+        }
+        /// <summary>
+        /// Write Information
+        /// </summary>
+        internal void LogInfo(string message)
+        {
+            AddLogMessage($"INF: {message}");
+            infoCount++;
+        }
+        /// <summary>
+        /// Write Time
+        /// </summary>
+        internal void LogTime()
+        {
+            AddLogMessage($"TIM: {DateTime.Now:dd.MM.yyyy HH:mm:ss}");
+        }
+        /// <summary>
+        /// Write Warning
+        /// </summary>
+        /// <param name="message"></param>
+        internal void LogWarning(string message)
+        {
+            AddLogMessage($"WRN: {message}");
+            warningCount++;
+        }
+        /// <summary>
+        /// Write Error
+        /// </summary>
+        /// <param name="message"></param>
+        internal void LogError(string message)
+        {
+            AddLogMessage($"ERR: {message}");
+            errorCount++;
+        }
+
+        internal void LogStartConvert()
+        {
+            AddLogMessage($"{DateTime.Now:dd.MM.yyyy HH:mm: ss} - {Resources.ConvertLogMessageStartConvert}");
+        }
+
+        
+
+        private void AddLogMessage(string message)
+        {
+            LoggerMessages.Add(message);
+        } 
+        #endregion
+
+
     }
 }
