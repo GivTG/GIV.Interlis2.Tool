@@ -125,10 +125,10 @@
     <value>Konvertierung erfolgreich abgeschlossen.</value>
   </data>
   <data name="ConvertLogMessageInputFile" xml:space="preserve">
-    <value>Input-Datei:</value>
+    <value>Quell-Datei:</value>
   </data>
   <data name="ConvertLogMessageOutputFile" xml:space="preserve">
-    <value>Output-Datei:</value>
+    <value>Ziel-Datei:</value>
   </data>
   <data name="ConvertLogMessageTitle" xml:space="preserve">
     <value>Start der Konvertierung von {0} zu {1}</value>
@@ -137,6 +137,24 @@
   <data name="ConvertLogMessageTitle1" xml:space="preserve">
     <value>Start der Konvertierung von {0} zu {1}</value>
     <comment>{0} Input-Model-Tag; {1} Output-Model-Tag</comment>
+  </data>
+  <data name="LogFileReadOnlyMessage" xml:space="preserve">
+    <value>Protokoll-Datei ist Schreibgeschützt</value>
+  </data>
+  <data name="OutputFileReadOnlyMessage" xml:space="preserve">
+    <value>Ziel-Datei ist Schreibgeschützt</value>
+  </data>
+  <data name="OverwriteMeassgeOutputFile" xml:space="preserve">
+    <value>Ziel-Datei ist vorhanden, kann diese Überscchrieben werden?</value>
+  </data>
+  <data name="OverwriteMessageAllFiles" xml:space="preserve">
+    <value>Ziel-Datei und Protokoll-Datei sind vorhanden, können diese Überscchrieben werden?</value>
+  </data>
+  <data name="OverwriteMessageLogFile" xml:space="preserve">
+    <value>Protokoll-Datei ist vorhanden, kann diese Überscchrieben werden?</value>
+  </data>
+  <data name="OverwriteMessageOk" xml:space="preserve">
+    <value>Dateien können überschrieben werden.</value>
   </data>
   <data name="SplitControllerHelpTextMelioration" xml:space="preserve">
     <value>Filtert die nicht Meliorations relevanten Daten aus einer DSS 2020 Datei.</value>

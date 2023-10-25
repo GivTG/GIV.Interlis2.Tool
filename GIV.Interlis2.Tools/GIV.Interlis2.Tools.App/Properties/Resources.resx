@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AbortFromUser" xml:space="preserve">
+    <value>Vorgang wurde vom Benutzender abgebrochen.</value>
+  </data>
   <data name="AppTitle" xml:space="preserve">
     <value>GIV - Interlis2 Tool</value>
     <comment>Title show on UI Windows</comment>
@@ -152,13 +155,16 @@
     <value>Ziel-Datei:</value>
   </data>
   <data name="LogFileMessage" xml:space="preserve">
-    <value>Log-Datei erstellt:</value>
+    <value>Protkoll-Datei erstellt:</value>
+  </data>
+  <data name="MessageBoxFileFoundWillOverwrite" xml:space="preserve">
+    <value>Vorhande Dateien überschreiben...</value>
   </data>
   <data name="RadioButtonDssToTggep" xml:space="preserve">
-    <value>DSS in DSS-GEP</value>
+    <value>DSS in TG-GEP</value>
   </data>
   <data name="RadioButtonDssToTgmel" xml:space="preserve">
-    <value>DSS in DSS-MEL</value>
+    <value>DSS in TG-MEL</value>
   </data>
   <data name="RadioButtonTgmelFilter" xml:space="preserve">
     <value>Filter DSS in TG-MEL</value>

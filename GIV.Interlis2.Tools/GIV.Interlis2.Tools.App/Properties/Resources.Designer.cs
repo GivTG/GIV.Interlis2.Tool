@@ -61,6 +61,15 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vorgang wurde vom Benutzender abgebrochen..
+        /// </summary>
+        public static string AbortFromUser {
+            get {
+                return ResourceManager.GetString("AbortFromUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GIV - Interlis2 Tool.
         /// </summary>
         public static string AppTitle {
@@ -160,7 +169,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log-Datei erstellt:.
+        ///   Looks up a localized string similar to Protkoll-Datei erstellt:.
         /// </summary>
         public static string LogFileMessage {
             get {
@@ -169,7 +178,16 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DSS in DSS-GEP.
+        ///   Looks up a localized string similar to Vorhande Dateien überschreiben....
+        /// </summary>
+        public static string MessageBoxFileFoundWillOverwrite {
+            get {
+                return ResourceManager.GetString("MessageBoxFileFoundWillOverwrite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DSS in TG-GEP.
         /// </summary>
         public static string RadioButtonDssToTggep {
             get {
@@ -178,7 +196,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DSS in DSS-MEL.
+        ///   Looks up a localized string similar to DSS in TG-MEL.
         /// </summary>
         public static string RadioButtonDssToTgmel {
             get {

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GIV.Interlis2.Tools.App.ViewModels
 {
@@ -44,7 +45,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                 OnPropertyChanged(nameof(InputFilePath));
             }
         }
-
+        private bool outputFileCanOverwrite = false;
         private string outputFilePath;
         public string OutputFilePath
         {
@@ -57,6 +58,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             }
         }
 
+        private bool logFileCanOverwrite = false;
         private string logFilePath;
         public string LogFilePath
         {
@@ -110,7 +112,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                 RestoreDirectory = true
             };
 
-            if (!string.IsNullOrEmpty(LogFilePath))
+            if (!string.IsNullOrEmpty(InputFilePath))
             {
                 try
                 {
@@ -125,6 +127,8 @@ namespace GIV.Interlis2.Tools.App.ViewModels
 
             if (openFileDialog.ShowDialog() ?? false)
             {
+                outputFileCanOverwrite = false;
+                logFileCanOverwrite = false;
                 InputFilePath = openFileDialog.FileName;
             }
         }
@@ -154,6 +158,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             if (saveFileDialog.ShowDialog() ?? false)
             {
                 OutputFilePath = saveFileDialog.FileName;
+                outputFileCanOverwrite = true;
             }
         }
 
@@ -182,6 +187,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             if (saveFileDialog.ShowDialog() ?? false)
             {
                 LogFilePath = saveFileDialog.FileName;
+                logFileCanOverwrite = true;
             }
         }
 
@@ -196,20 +202,32 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             {
                 runData.SetType(ActionType);
                 runData.SetInput(InputFilePath);
-                runData.SetOutput(OutputFilePath);
-                runData.SetLogFile(LogFilePath);
+                runData.SetOutput(OutputFilePath, outputFileCanOverwrite);
+                runData.SetLogFile(LogFilePath, logFileCanOverwrite);
             }
             catch (Exception ex)
             {
                 ViewLogWriteLine(Resources.GeneralRuntimeMessage, ex.Message);
+                ProgressIsVisible = false;
+                UpdateConvertEnabled();
                 return;
             }
-
 
             if (!availableControllers.ContainsKey(runData.Type))
             {
                 ViewLogWriteLine(Resources.TypeNotFoundErrorMessage, runData.Type);
                 return;
+            }
+
+            if (!runData.FileOverwriteIsConfirmed()) {
+                MessageBoxResult dialogResult = MessageBox.Show(runData.FileOverwriteMessage, Resources.MessageBoxFileFoundWillOverwrite, MessageBoxButton.OKCancel, MessageBoxImage.Information);
+                if (dialogResult == MessageBoxResult.Cancel)
+                {
+                    ViewLogWriteLine(Resources.AbortFromUser);
+                    ProgressIsVisible = false;
+                    UpdateConvertEnabled();
+                    return;
+                }
             }
 
             try
@@ -233,6 +251,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             }
             catch (Exception ex)
             {
+                // ToDo #16 - Message as Dialog-BOX
                 ViewLogWriteLine(Resources.GeneralRuntimeMessage, ex.Message);
             }
 
@@ -255,6 +274,9 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             ViewLogWriteLine(string.Format(format, arg0));
         }
 
+        /// <summary>
+        /// Create Output File Path and Name
+        /// </summary>
         private void UpdateOutputFilePath()
         {
             if (string.IsNullOrEmpty(inputFilePath)) return;
@@ -267,26 +289,15 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                 var directoryName = Path.GetDirectoryName(inputFilePath);
                 var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inputFilePath);
 
-                outputFilePath = Path.Combine(directoryName, $"{fileNameWithoutExtension}_{GetActionNameShort()}{extension}"); // use outputFilePath (not OutputFilePath) to avoid multiple calls of UpdateConvertEnabled()
+                // use outputFilePath (not OutputFilePath) to avoid multiple calls of UpdateConvertEnabled()
+                outputFilePath = Path.Combine(directoryName, $"{fileNameWithoutExtension}_{GetActionNameShort()}{extension}"); 
                 OnPropertyChanged(nameof(OutputFilePath));
             }
             catch { } // do nothing
         }
-
-        private string GetActionNameShort()
-        {
-            switch(actionType)
-            {
-                case ConvertDSS2TGMEL.FUNCTIONTYPE:
-                case SplitDSS2Melio.FUNCTIONTYPE:
-                    return "TGMEL";
-                case ConvertDSS2TGGEP.FUNCTIONTYPE:
-                    return "TGGEP";
-                default:
-                    return string.Empty;
-            }
-        }
-
+        /// <summary>
+        /// Create Log File Path and Name
+        /// </summary>
         private void UpdateLogFilePath()
         {
             if (string.IsNullOrEmpty(inputFilePath)) return;
@@ -299,10 +310,26 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                 var directoryName = Path.GetDirectoryName(inputFilePath);
                 var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(inputFilePath);
 
-                logFilePath = Path.Combine(directoryName, $"{fileNameWithoutExtension}.log"); // use logFilePath (not LogFilePath) to avoid multiple calls of UpdateConvertEnabled()
+                // use logFilePath (not LogFilePath) to avoid multiple calls of UpdateConvertEnabled()
+                logFilePath = Path.Combine(directoryName, $"{fileNameWithoutExtension}_{GetActionNameShort()}.log");
                 OnPropertyChanged(nameof(LogFilePath));
             }
             catch { } // do nothing
+        }
+
+        private string GetActionNameShort()
+        {
+            switch (actionType)
+            {
+                case ConvertDSS2TGMEL.FUNCTIONTYPE:
+                    return "TGMEL";
+                case ConvertDSS2TGGEP.FUNCTIONTYPE:
+                    return "TGGEP";
+                case SplitDSS2Melio.FUNCTIONTYPE:
+                    return "TGMEL";
+                default:
+                    return string.Empty;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

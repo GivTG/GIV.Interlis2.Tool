@@ -79,7 +79,7 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Input-Datei:.
+        ///   Looks up a localized string similar to Quell-Datei:.
         /// </summary>
         internal static string ConvertLogMessageInputFile {
             get {
@@ -88,7 +88,7 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Output-Datei:.
+        ///   Looks up a localized string similar to Ziel-Datei:.
         /// </summary>
         internal static string ConvertLogMessageOutputFile {
             get {
@@ -111,6 +111,60 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         internal static string ConvertLogMessageTitle1 {
             get {
                 return ResourceManager.GetString("ConvertLogMessageTitle1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protokoll-Datei ist Schreibgeschützt.
+        /// </summary>
+        internal static string LogFileReadOnlyMessage {
+            get {
+                return ResourceManager.GetString("LogFileReadOnlyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ziel-Datei ist Schreibgeschützt.
+        /// </summary>
+        internal static string OutputFileReadOnlyMessage {
+            get {
+                return ResourceManager.GetString("OutputFileReadOnlyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ziel-Datei ist vorhanden, kann diese Überscchrieben werden?.
+        /// </summary>
+        internal static string OverwriteMeassgeOutputFile {
+            get {
+                return ResourceManager.GetString("OverwriteMeassgeOutputFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ziel-Datei und Protokoll-Datei sind vorhanden, können diese Überscchrieben werden?.
+        /// </summary>
+        internal static string OverwriteMessageAllFiles {
+            get {
+                return ResourceManager.GetString("OverwriteMessageAllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protokoll-Datei ist vorhanden, kann diese Überscchrieben werden?.
+        /// </summary>
+        internal static string OverwriteMessageLogFile {
+            get {
+                return ResourceManager.GetString("OverwriteMessageLogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dateien können überschrieben werden..
+        /// </summary>
+        internal static string OverwriteMessageOk {
+            get {
+                return ResourceManager.GetString("OverwriteMessageOk", resourceCulture);
             }
         }
         

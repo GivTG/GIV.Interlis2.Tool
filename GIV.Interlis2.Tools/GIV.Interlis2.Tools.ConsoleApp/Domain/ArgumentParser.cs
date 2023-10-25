@@ -33,11 +33,11 @@ namespace GIV.Interlis2.Tools.Domain
                         break;
                     case "--output":
                     case "-o":
-                        runData.SetOutput(arguments[i + 1]);
+                        runData.SetOutput(arguments[i + 1], true);
                         break;
                     case "--log":
                     case "-log":
-                        runData.SetLogFile(arguments[i + 1]);
+                        runData.SetLogFile(arguments[i + 1], true);
                         break;
                 }
                 i++;
