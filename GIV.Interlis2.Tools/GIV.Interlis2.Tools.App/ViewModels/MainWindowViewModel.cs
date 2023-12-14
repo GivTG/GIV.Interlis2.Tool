@@ -207,9 +207,11 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             }
             catch (Exception ex)
             {
-                ViewLogWriteLine(Resources.GeneralRuntimeMessage, ex.Message);
+                var message = String.Format(Resources.GeneralRuntimeMessage, ex.Message);
+                ViewLogWriteLine(message);
                 ProgressIsVisible = false;
                 UpdateConvertEnabled();
+                MessageBox.Show(message, Resources.AppTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
