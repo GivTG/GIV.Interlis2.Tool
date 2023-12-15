@@ -449,10 +449,12 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             string relName /* name of related XML Node */, 
             List<string> listWithOIDs /* list with valid oids (not removabel) */)
         {
+            var relAttrFound = false;
             foreach(XmlNode childNode in node.ChildNodes)
             {
                 if (childNode.Name == relName)
                 {
+                    relAttrFound = true;
                     var value = childNode.Attributes["REF"].Value;
                     if (!listWithOIDs.Contains(value))
                     {
@@ -461,6 +463,9 @@ namespace GIV.Interlis2.Tools.Common.Contollers
                     }
                 }
             }
+
+            if (relAttrFound == false) return true;
+
             return false;
         }
 
