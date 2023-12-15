@@ -151,7 +151,7 @@
     <comment>{0} Command name</comment>
   </data>
   <data name="MainConsoleTitle" xml:space="preserve">
-    <value>GIV-TG - Interlis2 Tool</value>
+    <value>GIV Interlis2 Tool</value>
   </data>
   <data name="MainConsoleTypeNotFoundErrorMessage" xml:space="preserve">
     <value>Der angegebene Typ [{0}] wurde nicht gefunden.</value>

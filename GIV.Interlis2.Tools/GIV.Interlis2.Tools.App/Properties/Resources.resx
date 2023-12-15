@@ -121,7 +121,7 @@
     <value>Vorgang wurde vom Benutzender abgebrochen.</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
-    <value>GIV - Interlis2 Tool</value>
+    <value>GIV Interlis2 Tool</value>
     <comment>Title show on UI Windows</comment>
   </data>
   <data name="ButtonConvert" xml:space="preserve">

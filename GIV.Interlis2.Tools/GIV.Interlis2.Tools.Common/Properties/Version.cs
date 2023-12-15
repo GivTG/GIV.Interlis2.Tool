@@ -5,7 +5,7 @@
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("GIV - Interlis2 Tools")]
+[assembly: AssemblyProduct("GIV Interlis2 Tool")]
 
 // Version information for an assembly consists of the following four values:
 //

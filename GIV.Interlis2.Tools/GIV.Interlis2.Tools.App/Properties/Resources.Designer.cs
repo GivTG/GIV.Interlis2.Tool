@@ -70,7 +70,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GIV - Interlis2 Tool.
+        ///   Looks up a localized string similar to GIV Interlis2 Tool.
         /// </summary>
         public static string AppTitle {
             get {

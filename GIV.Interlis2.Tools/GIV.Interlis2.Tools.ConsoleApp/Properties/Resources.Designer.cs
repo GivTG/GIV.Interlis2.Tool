@@ -142,7 +142,7 @@ namespace GIV.Interlis2.Tools.ConsoleApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GIV-TG - Interlis2 Tool.
+        ///   Looks up a localized string similar to GIV Interlis2 Tool.
         /// </summary>
         internal static string MainConsoleTitle {
             get {

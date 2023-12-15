@@ -9,7 +9,7 @@
         xmlns:converters="clr-namespace:GIV.Interlis2.Tools.App.Converters"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
-        Title="GIV - Interlis2 Tool"
+        Title="GIV Interlis2 Tool"
         Style="{DynamicResource gbxMainWindowStyle}"
         Height="590"
         Width="894"
