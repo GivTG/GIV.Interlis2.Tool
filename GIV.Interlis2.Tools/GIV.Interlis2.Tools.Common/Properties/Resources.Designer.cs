@@ -133,11 +133,29 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Speicherpfad für die Protokoll-Datei ist ungültig..
+        /// </summary>
+        internal static string LogFileDirectoryNotExistsMessage {
+            get {
+                return ResourceManager.GetString("LogFileDirectoryNotExistsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Protokoll-Datei ist Schreibgeschützt.
         /// </summary>
         internal static string LogFileReadOnlyMessage {
             get {
                 return ResourceManager.GetString("LogFileReadOnlyMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speicherpfad für die Ziel-Datei ist ungültig..
+        /// </summary>
+        internal static string OutputFileDirectoryNotExistsMessage {
+            get {
+                return ResourceManager.GetString("OutputFileDirectoryNotExistsMessage", resourceCulture);
             }
         }
         

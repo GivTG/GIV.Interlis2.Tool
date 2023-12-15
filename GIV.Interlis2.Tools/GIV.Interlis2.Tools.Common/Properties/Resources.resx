@@ -143,8 +143,14 @@
   <data name="ConvertLogWriterFooterMessageSuccess" xml:space="preserve">
     <value>Ohne Meldungen beendet.</value>
   </data>
+  <data name="LogFileDirectoryNotExistsMessage" xml:space="preserve">
+    <value>Speicherpfad für die Protokoll-Datei ist ungültig.</value>
+  </data>
   <data name="LogFileReadOnlyMessage" xml:space="preserve">
     <value>Protokoll-Datei ist Schreibgeschützt</value>
+  </data>
+  <data name="OutputFileDirectoryNotExistsMessage" xml:space="preserve">
+    <value>Speicherpfad für die Ziel-Datei ist ungültig.</value>
   </data>
   <data name="OutputFileReadOnlyMessage" xml:space="preserve">
     <value>Ziel-Datei ist Schreibgeschützt</value>

@@ -118,6 +118,11 @@ namespace GIV.Interlis2.Tools.Common.Domain
                 OutputOverwrite = canOverwrite;
             }
 
+            if (!Directory.Exists(Path.GetDirectoryName(output)))
+            {
+                throw new Exception(Resources.OutputFileDirectoryNotExistsMessage);
+            }
+
             Output = output;            
             CheckData();
         }
@@ -146,6 +151,11 @@ namespace GIV.Interlis2.Tools.Common.Domain
             else
             {
                 LogFileOverwrite = canOverwrite;
+            }
+
+            if (!Directory.Exists(Path.GetDirectoryName(logfile)))
+            {
+                throw new Exception(Resources.LogFileDirectoryNotExistsMessage);
             }
 
             LogFile = logfile;
