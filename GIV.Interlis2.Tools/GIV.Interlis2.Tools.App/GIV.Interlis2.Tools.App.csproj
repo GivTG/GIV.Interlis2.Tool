@@ -7,7 +7,7 @@
     <ProjectGuid>{14282160-518C-4771-96CE-5729B614EC00}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>GIV.Interlis2.Tools.App</RootNamespace>
-    <AssemblyName>GIV Interlis2 Tools</AssemblyName>
+    <AssemblyName>GIV Interlis2 Tool</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

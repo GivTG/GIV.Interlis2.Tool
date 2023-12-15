@@ -37,7 +37,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         /// <summary>
         /// Name of Controller for Display and Logging
         /// </summary>
-        private const string CONTROLLERNAME = "Konvertiert DSS in DSS-GEP";
+        private const string CONTROLLERNAME = "Konvertiert DSS in TG-GEP";
 
         /// <summary>
         /// Name of FunctionType

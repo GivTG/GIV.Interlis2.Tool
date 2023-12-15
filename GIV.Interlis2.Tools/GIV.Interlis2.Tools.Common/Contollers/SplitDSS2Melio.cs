@@ -11,7 +11,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
     public class SplitDSS2Melio : BaseController
     {
         // DEBUG
-        // --type splitDSS2Melio --input "C:\_repos\GIV.Interlis2.Tool\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\TG_2020_SPLIT.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\dss2splitmelgep.log"
+        // --type splitDSS2melio --input "C:\_repos\GIV.Interlis2.Tool\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\TG_2020_SPLIT.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\dss2splitmelgep.log"
 
         #region Propertys and Attributs
         /// <summary>
@@ -140,7 +140,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         /// Name of FunctionType
         /// Key: must be unique
         /// </summary>
-        public const string FUNCTIONTYPE = "splitDSS2Melio";
+        public const string FUNCTIONTYPE = "splitDSS2melio";
         #endregion
 
         #region Constructor

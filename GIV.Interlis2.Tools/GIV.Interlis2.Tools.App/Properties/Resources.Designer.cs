@@ -187,7 +187,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DSS in TG-GEP.
+        ///   Looks up a localized string similar to Konvertieren: DSS in TG-GEP.
         /// </summary>
         public static string RadioButtonDssToTggep {
             get {
@@ -196,7 +196,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DSS in TG-MEL.
+        ///   Looks up a localized string similar to Konvertieren: DSS in TG-MEL.
         /// </summary>
         public static string RadioButtonDssToTgmel {
             get {
@@ -205,7 +205,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filter DSS in TG-MEL.
+        ///   Looks up a localized string similar to Filter: DSS in TG-MEL.
         /// </summary>
         public static string RadioButtonTgmelFilter {
             get {

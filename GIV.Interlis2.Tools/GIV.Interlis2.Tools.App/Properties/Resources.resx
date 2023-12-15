@@ -161,13 +161,13 @@
     <value>Vorhande Dateien überschreiben...</value>
   </data>
   <data name="RadioButtonDssToTggep" xml:space="preserve">
-    <value>DSS in TG-GEP</value>
+    <value>Konvertieren: DSS in TG-GEP</value>
   </data>
   <data name="RadioButtonDssToTgmel" xml:space="preserve">
-    <value>DSS in TG-MEL</value>
+    <value>Konvertieren: DSS in TG-MEL</value>
   </data>
   <data name="RadioButtonTgmelFilter" xml:space="preserve">
-    <value>Filter DSS in TG-MEL</value>
+    <value>Filter: DSS in TG-MEL</value>
   </data>
   <data name="StartCommandMessage" xml:space="preserve">
     <value>Funktion [{0}] wird gestartet...</value>
