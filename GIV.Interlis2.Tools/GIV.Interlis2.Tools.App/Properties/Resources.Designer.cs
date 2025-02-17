@@ -88,7 +88,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Öffnen.
+        ///   Looks up a localized string similar to Datei öffnen.
         /// </summary>
         public static string ButtonOpen {
             get {
@@ -97,7 +97,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wählen.
+        ///   Looks up a localized string similar to Speicherort wählen.
         /// </summary>
         public static string ButtonSelect {
             get {

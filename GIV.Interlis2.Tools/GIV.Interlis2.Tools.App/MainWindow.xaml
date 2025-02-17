@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
         Title="GIV Interlis2 Tool"
-        Style="{DynamicResource gbxMainWindowStyle}"
+        Style="{DynamicResource GIVMainWindowStyle}"
         Height="590"
         Width="894"
         MinHeight="400"
@@ -32,7 +32,7 @@
         </Grid.RowDefinitions>
         <Grid x:Name="HeaderGrid" MouseLeftButtonDown="MainWindow_Drag">
             <Grid.Background>
-                <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
             </Grid.Background>
             <StackPanel x:Name="TitleBarSoftwareStackPanel"
                         HorizontalAlignment="Left"
@@ -51,7 +51,7 @@
                        FontWeight="Bold"
                        d:LayoutOverrides="Width">
                     <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource gbxMainWindowTitelBarFontColor}" />
+                        <SolidColorBrush Color="{DynamicResource GIVMainWindowTitelBarFontColor}" />
                     </Label.Foreground>
                 </Label>
             </StackPanel>
@@ -65,7 +65,7 @@
                         WindowChrome.IsHitTestVisibleInChrome="True">
                 <Button x:Name="MinimizeButton"
                         Click="MainWindow_Minimize"
-                        Style="{DynamicResource SettingWindowTitleBarButton}"
+                        Style="{DynamicResource MainWindowTitleBarButton}"
                         ToolTip="Verkleinern">
                     <Grid Width="30" Height="24">
                         <TextBlock HorizontalAlignment="Center"
@@ -75,14 +75,14 @@
                                    Padding="3.5,0,0,3"
                                    Text="0">
                             <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource gbxMainWindowTitelBarFontColor}" />
+                                <SolidColorBrush Color="{DynamicResource GIVMainWindowTitelBarFontColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                     </Grid>
                 </Button>
                 <Button x:Name="RestoreButton"
                     Click="MainWindow_Restore"
-                    Style="{DynamicResource SettingWindowTitleBarButton}"
+                    Style="{DynamicResource MainWindowTitleBarButton}"
                     ToolTip="Maximieren">
                     <Grid Width="30" Height="24">
                         <TextBlock HorizontalAlignment="Center" x:Name="RestoreButtonTextBlock"
@@ -92,14 +92,14 @@
                             Padding="3.5,0,0,3"
                             Text="1">
                             <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource gbxMainWindowTitelBarFontColor}" />
+                                <SolidColorBrush Color="{DynamicResource GIVMainWindowTitelBarFontColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                     </Grid>
                 </Button>
                 <Button x:Name="CloseButton"
                         Click="MainWindow_Close"
-                        Style="{DynamicResource SettingWindowTitleBarButton}"
+                        Style="{DynamicResource MainWindowTitleBarButton}"
                         ToolTip="Schliessen">
                     <Grid Width="30" Height="25">
                         <TextBlock HorizontalAlignment="Center"
@@ -109,7 +109,7 @@
                                    Padding="0,0,0,1"
                                    Text="r">
                             <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource gbxMainWindowTitelBarFontColor}" />
+                                <SolidColorBrush Color="{DynamicResource GIVMainWindowTitelBarFontColor}" />
                             </TextBlock.Foreground>
                         </TextBlock>
                     </Grid>
@@ -126,7 +126,7 @@
                 <ColumnDefinition Width="8"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="8"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="125"/>
                 <ColumnDefinition Width="16"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -168,7 +168,9 @@
             <Button x:Name="ConvertButton" Content="{x:Static resx:Resources.ButtonConvert}" IsEnabled="{Binding ConvertEnabled}" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="5" Padding="5,1,5,1" FontWeight="Bold" Click="ConvertButton_Click" />
 
             <Label x:Name="LoggerLabel" Content="{x:Static resx:Resources.LabelInfoLogger}" HorizontalAlignment="Left" Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3" Padding="0,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
-            <TextBox x:Name="LoggerTextBox" TextWrapping="Wrap" Text="{Binding ViewLogContent, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="5" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" IsReadOnly="True"/>
+            <ScrollViewer x:Name="LoggerTextBoxScrollViewer" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="5">
+                <TextBox x:Name="LoggerTextBox" TextWrapping="Wrap" Text="{Binding ViewLogContent, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" TextChanged="LoggerTextBox_OnTextChanged"/>
+            </ScrollViewer>
 
         </Grid>
         <Grid x:Name="FooterGrid" Grid.Row="2">
@@ -178,7 +180,7 @@
             </Grid.ColumnDefinitions>
             
             <ProgressBar x:Name="ProgressBar" HorizontalAlignment="Left" Height="10" Width="100" IsIndeterminate="true" Visibility="{Binding ProgressIsVisible, Converter={StaticResource BoolToVisibility}}" Margin="16,0,0,0"/>
-            <Label x:Name="InfoVersionLabel" Content="Version x.x.x" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{DynamicResource gbxDetailsHintLabel}" Grid.Column="1" Margin="0,0,16,0"/>
+            <Label x:Name="InfoVersionLabel" Content="Version x.x.x" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{DynamicResource GIVDetailsHintLabel}" Grid.Column="1" Margin="0,0,16,0"/>
         
         </Grid>
     </Grid>

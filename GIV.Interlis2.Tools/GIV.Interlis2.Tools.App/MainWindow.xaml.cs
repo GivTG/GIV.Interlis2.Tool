@@ -115,5 +115,10 @@ namespace GIV.Interlis2.Tools.App
         {
             await mainWindowViewModel?.Execute();
         }
+
+        private void LoggerTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.LoggerTextBoxScrollViewer.ScrollToEnd();
+        }
     }
 }

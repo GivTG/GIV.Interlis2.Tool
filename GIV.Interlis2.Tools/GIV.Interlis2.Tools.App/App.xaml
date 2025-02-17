@@ -5,16 +5,27 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="gbxMainWindowTitelBarFontColor">#FFFFFFFF</Color>
-            <Color x:Key="gbxMainWindowStyleBorderColor">#FFD02021</Color>
-            <Color x:Key="gbxMainWindowStyleShadowColor">#FF919191</Color>
-            <Color x:Key="gbxBtnDefaultColor">#FFFFFFFF</Color>
-            <Color x:Key="gbxWindowBtnActiveColor">#FFFFFFFF</Color>
-            <Color x:Key="gbxBtnFontColor">#FF838383</Color>
-            <Color x:Key="gbxDetailsHintLabelColor">#FF838383</Color>
-            <Color x:Key="gbxDetailsTitleLabelColor">#FFD02021</Color>
-            <SolidColorBrush x:Key="gbxDetailsTitleLabelColorBrush" Color="#FFD02021" />
-            <Color x:Key="gbxDetailsTitleBackgroundColor">#FFCDCDCD</Color>
+            <!-- Window HEADER - Color, Buttons and Text -->
+            <Color x:Key="GIVMainWindowTitelBarFontColor">#FFFFFFFF</Color>
+            <Color x:Key="GIVMainWindowStyleBorderColor">#FFD02021</Color>
+            <Color x:Key="GIVMainWindowStyleShadowColor">#FF919191</Color>
+            <Color x:Key="GIVWindowButtonOnMouseOverColor">#FFDE7D7D</Color>
+            <Color x:Key="GIVWindowCloseButtonOnMouseOverColor">Red</Color>
+            <Color x:Key="GIVWindowButtonOnClickColor">#FFD02021</Color>
+
+            <Color x:Key="GIVBtnDefaultColor">#FFFFFFFF</Color>
+            <Color x:Key="GIVWindowBtnActiveColor">#FFFFFFFF</Color>
+            <Color x:Key="GIVBtnFontColor">#FF838383</Color>
+            <Color x:Key="GIVDetailsHintLabelColor">#FF838383</Color>
+            <Color x:Key="GIVDetailsTitleLabelColor">#FFD02021</Color>
+            <Color x:Key="GIVDetailsTitleBackgroundColor">#FFCDCDCD</Color>
+
+            <SolidColorBrush x:Key="WindowButtonOnMouseOverBrush" Color="{StaticResource GIVWindowButtonOnMouseOverColor}" />
+            <SolidColorBrush x:Key="WindowButtonOnClickBrush" Color="{StaticResource GIVWindowButtonOnClickColor}" />
+
+            <SolidColorBrush x:Key="GIVDetailsTitleLabelColorBrush" Color="#FFD02021" />
+
+
             <ControlTemplate x:Key="WindowTemplateKey" TargetType="{x:Type Window}">
                 <Border Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -40,7 +51,7 @@
                     </MultiTrigger>
                 </ControlTemplate.Triggers>
             </ControlTemplate>
-            <Style x:Key="gbxMainWindowStyle" TargetType="{x:Type Window}">
+            <Style x:Key="GIVMainWindowStyle" TargetType="{x:Type Window}">
                 <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
                 <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
                 <Setter Property="Template">
@@ -52,7 +63,7 @@
                                     SnapsToDevicePixels="True"
                                     UseLayoutRounding="True">
                                 <Border.BorderBrush>
-                                    <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                                    <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
                                 </Border.BorderBrush>
                                 <AdornerDecorator UseLayoutRounding="True">
                                     <ContentPresenter />
@@ -89,6 +100,8 @@
             <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
             <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
             <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+
+            <!-- Close Button on Windows -->
             <Style x:Key="MainWindowTitleBarButton" TargetType="{x:Type Button}">
                 <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
                 <Setter Property="BorderThickness" Value="0" />
@@ -113,17 +126,16 @@
                                 <Trigger Property="IsDefaulted" Value="true" />
                                 <Trigger Property="IsDefault" Value="False" />
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter TargetName="border" Property="Background" Value="Red" />
-                                    <Setter TargetName="border" Property="BorderBrush" Value="Red" />
+                                    <Setter TargetName="border" Property="Background" Value="{StaticResource WindowButtonOnMouseOverBrush}" />
+                                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource WindowButtonOnMouseOverBrush}" />
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="true">
-                                    <Setter TargetName="border" Property="Background" Value="Red" />
-                                    <Setter TargetName="border" Property="BorderBrush" Value="Red" />
+                                    <Setter TargetName="border" Property="Background" Value="{StaticResource WindowButtonOnClickBrush}" />
+                                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource WindowButtonOnClickBrush}" />
                                 </Trigger>
                                 <Trigger Property="IsEnabled" Value="false">
-                                    <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
-                                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
-                                    <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                                    <Setter TargetName="border" Property="Background" Value="{StaticResource WindowButtonOnMouseOverBrush}" />
+                                    <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource WindowButtonOnMouseOverBrush}" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -131,13 +143,13 @@
                 </Setter>
                 <Setter Property="BorderBrush">
                     <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                        <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
                     </Setter.Value>
                 </Setter>
                 <Setter Property="Opacity" Value="1" />
                 <Setter Property="Background">
                     <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                        <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
                     </Setter.Value>
                 </Setter>
             </Style>
@@ -196,10 +208,10 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     SnapsToDevicePixels="true">
                                 <Border.BorderBrush>
-                                    <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                                    <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
                                 </Border.BorderBrush>
                                 <Border.Background>
-                                    <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                                    <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
                                 </Border.Background>
                                 <ContentPresenter x:Name="contentPresenter"
                                                   Margin="{TemplateBinding Padding}"
@@ -223,19 +235,19 @@
                 </Setter>
                 <Setter Property="BorderBrush">
                     <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleBorderColor}" />
+                        <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleBorderColor}" />
                     </Setter.Value>
                 </Setter>
                 <Setter Property="Opacity" Value="1" />
                 <Setter Property="Background">
                     <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource gbxMainWindowStyleShadowColor}" />
+                        <SolidColorBrush Color="{DynamicResource GIVMainWindowStyleShadowColor}" />
                     </Setter.Value>
                 </Setter>
             </Style>
-            <Style x:Key="gbxViewTitleLabel" TargetType="{x:Type Label}">
+            <Style x:Key="GIVViewTitleLabel" TargetType="{x:Type Label}">
                 <Setter Property="FontSize" Value="18.667" />
-                <Setter Property="Foreground" Value="{DynamicResource gbxDetailsTitleLabelColorBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource GIVDetailsTitleLabelColorBrush}" />
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="Padding" Value="5" />
                 <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -263,11 +275,11 @@
                 </Setter>
                 <Setter Property="FontWeight" Value="Bold" />
             </Style>
-            <Style x:Key="gbxDetailsHintLabel" TargetType="{x:Type Label}">
+            <Style x:Key="GIVDetailsHintLabel" TargetType="{x:Type Label}">
                 <Setter Property="FontStyle" Value="Italic" />
                 <Setter Property="Foreground">
                     <Setter.Value>
-                        <SolidColorBrush Color="{DynamicResource gbxDetailsHintLabelColor}" />
+                        <SolidColorBrush Color="{DynamicResource GIVDetailsHintLabelColor}" />
                     </Setter.Value>
                 </Setter>
                 <Setter Property="Background" Value="Transparent" />

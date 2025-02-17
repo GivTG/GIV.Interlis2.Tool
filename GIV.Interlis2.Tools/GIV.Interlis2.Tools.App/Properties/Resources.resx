@@ -128,10 +128,10 @@
     <value>Konvertieren</value>
   </data>
   <data name="ButtonOpen" xml:space="preserve">
-    <value>Öffnen</value>
+    <value>Datei öffnen</value>
   </data>
   <data name="ButtonSelect" xml:space="preserve">
-    <value>Wählen</value>
+    <value>Speicherort wählen</value>
   </data>
   <data name="EndCommandErrorMessage" xml:space="preserve">
     <value>Funktion [{0}] mit Meldungen beendet...</value>
