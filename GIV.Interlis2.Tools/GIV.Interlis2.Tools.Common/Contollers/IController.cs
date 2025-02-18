@@ -33,7 +33,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         /// <summary>
         /// Path to loggerfile
         /// </summary>
-        string LogPath { get; }
+        string LogPath { set;  get; }
         #endregion
 
         /// <summary>

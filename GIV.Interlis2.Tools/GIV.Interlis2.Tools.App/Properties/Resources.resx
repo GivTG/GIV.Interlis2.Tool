@@ -140,7 +140,7 @@
     <value>Funktion [{0}] beendet...</value>
   </data>
   <data name="GeneralRuntimeMessage" xml:space="preserve">
-    <value>Ausführung ist ein Problem aufgetretten: [{0}].</value>
+    <value>Bei der Ausführung ist ein Problem aufgetreten: [{0}].</value>
   </data>
   <data name="LabelInfoLogger" xml:space="preserve">
     <value>Info - Logger</value>
@@ -169,10 +169,15 @@
   <data name="RadioButtonTgmelFilter" xml:space="preserve">
     <value>Filter: DSS in TG-MEL</value>
   </data>
+  <data name="StartCommandLogFile" xml:space="preserve">
+    <value>Speicherort der Protokolldatei: {0}</value>
+    <comment>{0} save path to log file</comment>
+  </data>
   <data name="StartCommandMessage" xml:space="preserve">
     <value>Funktion [{0}] wird gestartet...</value>
   </data>
   <data name="TypeNotFoundErrorMessage" xml:space="preserve">
     <value>Der angegebene Typ [{0}] wurde nicht gefunden.</value>
+    <comment>{0} command name</comment>
   </data>
 </root>

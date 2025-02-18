@@ -1,6 +1,7 @@
 ﻿using GIV.Interlis2.Tools.Common.Properties;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         private string helpText = String.Empty;
 
-        public string LogPath { get; private set; } = @"C:\Temp\CreaterLogFile.txt";
+        public string LogPath { get; set; }
 
         public List<string> LoggerMessages { get; private set; } = new List<string>();
 
@@ -54,6 +55,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         public BaseController(string name)
         {
             controllerName = name;
+            LogPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), $"{Guid.NewGuid()}.log");
         }
 
         #region Name and Help-Text
@@ -147,15 +149,18 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         /// </summary>
         internal void AddLogFileHeader()
         {
-            AddLogMessage("** GIV - Interlis2 Tool - Logger  **");
+            AddLogMessage($"** GIV - Interlis2 Tool ({GetAssemblyVersionString()}) **");
             AddLogMessage($"** {DateTime.Now:dd.MM.yyyy HH:mm:ss} - {Resources.ConvertLogMessageHeaderInfo} **");
+            AddLogMessage("** ------------------------------------------------------------------------------------------ **");
             AddLogMessage(String.Empty);
         }
 
         internal void AddLogFileFooter()
         {
             AddLogMessage(String.Empty);
-            AddLogMessage($"{DateTime.Now} - {((HasErrors || HasWarnings) ? Resources.ConvertLogWriterFooterMessageError : Resources.ConvertLogWriterFooterMessageSuccess)}");
+            AddLogMessage("** ------------------------------------------------------------------------------------------ **");
+            AddLogMessage($"** {DateTime.Now} - {((HasErrors || HasWarnings) ? Resources.ConvertLogWriterFooterMessageError : Resources.ConvertLogWriterFooterMessageSuccess)} **");
+            AddLogMessage("** ========================================================================================== **");
         }
 
         /// <summary>
@@ -201,17 +206,23 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         internal void LogStartConvert()
         {
-            AddLogMessage($"{DateTime.Now:dd.MM.yyyy HH:mm: ss} - {Resources.ConvertLogMessageStartConvert}");
+            AddLogMessage($"INF: {DateTime.Now:dd.MM.yyyy HH:mm: ss} - {Resources.ConvertLogMessageStartConvert}");
         }
-
-        
 
         private void AddLogMessage(string message)
         {
             LoggerMessages.Add(message);
-        } 
+        }
         #endregion
 
+        #region Get Assembly-Version
+        // Return the actual version from EXE to Display in Form
+        private string GetAssemblyVersionString()
+        {
+            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            return String.Format("Version: {0}.{1}.{2}", version.Major, version.Minor, version.Build);
+        }
+        #endregion Get Assembly-Version
 
     }
 }

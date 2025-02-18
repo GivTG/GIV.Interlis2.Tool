@@ -124,7 +124,7 @@ namespace GIV.Interlis2.Tools.ConsoleApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Drücke eine belibige Taste für das Beenden der Konsole.
+        ///   Looks up a localized string similar to Drücke eine beliebige Taste zum Beenden der Konsole....
         /// </summary>
         internal static string MainConsolePressAnyKeyForExit {
             get {

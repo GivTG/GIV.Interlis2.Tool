@@ -143,6 +143,9 @@
   <data name="ConvertLogWriterFooterMessageSuccess" xml:space="preserve">
     <value>Ohne Meldungen beendet.</value>
   </data>
+  <data name="GeneralRuntimeMessage" xml:space="preserve">
+    <value>Bei der Ausführung ist ein Problem aufgetreten: [{0}].</value>
+  </data>
   <data name="LogFileDirectoryNotExistsMessage" xml:space="preserve">
     <value>Speicherpfad für die Protokoll-Datei ist ungültig.</value>
   </data>
@@ -180,5 +183,8 @@
   <data name="SplitLogMessageTitle" xml:space="preserve">
     <value>Start Anwenden des Filter {0}</value>
     <comment>{0} Filter name</comment>
+  </data>
+  <data name="XmlNodeWithoutTIDException" xml:space="preserve">
+    <value>Es wurde ein Eintrag ohne TID gefunden.</value>
   </data>
 </root>

@@ -133,6 +133,15 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bei der Ausführung ist ein Problem aufgetreten: [{0}]..
+        /// </summary>
+        internal static string GeneralRuntimeMessage {
+            get {
+                return ResourceManager.GetString("GeneralRuntimeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Speicherpfad für die Protokoll-Datei ist ungültig..
         /// </summary>
         internal static string LogFileDirectoryNotExistsMessage {
@@ -237,6 +246,15 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         internal static string SplitLogMessageTitle {
             get {
                 return ResourceManager.GetString("SplitLogMessageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Es wurde ein Eintrag ohne TID gefunden..
+        /// </summary>
+        internal static string XmlNodeWithoutTIDException {
+            get {
+                return ResourceManager.GetString("XmlNodeWithoutTIDException", resourceCulture);
             }
         }
     }

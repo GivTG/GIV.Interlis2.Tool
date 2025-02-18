@@ -3,8 +3,10 @@ using GIV.Interlis2.Tools.Common.IO;
 using GIV.Interlis2.Tools.Common.Properties;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace GIV.Interlis2.Tools.Common.Contollers
 {
@@ -12,6 +14,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
     {
         // DEBUG
         // --type splitDSS2melio --input "C:\_repos\GIV.Interlis2.Tool\DebugData\Muster_DSS_2020.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\TG_2020_SPLIT.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\dss2splitmelgep.log"
+        // --type splitDSS2melio --input "C:\_repos\GIV.Interlis2.Tool\DebugData\DSS_2015_LV95_Amlikon.xtf" --output "C:\_repos\GIV.Interlis2.Tool\DebugData\DSS_2015_LV95_Amlikon_TGMEL.xtf" --log "C:\_repos\GIV.Interlis2.Tool\DebugData\DSS_2015_LV95_Amlikon_GIV_Console.log"
 
         #region Propertys and Attributs
         /// <summary>
@@ -151,6 +154,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         public SplitDSS2Melio(RunData data) : base(CONTROLLERNAME)
         {
             runData = data;
+            LogPath = data.LogFile;
             InitHelpText();
         }
 
@@ -186,39 +190,51 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             LogInfo($"{Resources.ConvertLogMessageOutputFile} {runData.Output}");
             LogStartConvert();
 
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(runData.Input);
-
-            foreach (XmlNode rootNode in xmlDocument.ChildNodes)
+            try
             {
-                if (rootNode.Name == "TRANSFER")
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(runData.Input);
+
+                foreach (XmlNode rootNode in xmlDocument.ChildNodes)
                 {
-                    foreach (XmlNode secondLevelNode in rootNode.ChildNodes)
+                    if (rootNode.Name == "TRANSFER")
                     {
-                        if (secondLevelNode.Name == "DATASECTION")
+                        foreach (XmlNode secondLevelNode in rootNode.ChildNodes)
                         {
-                            // loop all topic nodes -> remove irrelvant childs
-                            foreach (XmlNode topicNode in secondLevelNode.ChildNodes)
+                            if (secondLevelNode.Name == "DATASECTION")
                             {
-                                // Remove irrelevante Nodes
-                                var irrelevantNodes = GetIrrelevantChildNodes(topicNode);
-                                RemoveChildNodes(topicNode, irrelevantNodes);
-                                // Handle other Nodesl
-                                HandleWasteWaterNodes(topicNode);
+                                // loop all topic nodes -> remove irrelvant childs
+                                foreach (XmlNode topicNode in secondLevelNode.ChildNodes)
+                                {
+                                    // Remove irrelevante Nodes
+                                    var irrelevantNodes = GetIrrelevantChildNodes(topicNode);
+                                    RemoveChildNodes(topicNode, irrelevantNodes);
+                                    // Handle other Nodesl
+                                    HandleWasteWaterNodes(topicNode);
+                                }
+
+                                break; // DATASECTION node processed -> no need to loop further trough the TRANSFER node
                             }
-
-                            break; // DATASECTION node processed -> no need to loop further trough the TRANSFER node
                         }
+
+                        break; // TRANSFER node processed -> no need to loop further trough the root node
                     }
-
-                    break; // TRANSFER node processed -> no need to loop further trough the root node
                 }
+
+                XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
+                //xmlDocument.Save(runData.Output);
             }
-
-            XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
-            //xmlDocument.Save(runData.Output);
-
-            AddLogFileFooter();
+            catch (Exception ex)
+            {
+                LogError(String.Format(Resources.GeneralRuntimeMessage, ex.Message));
+                throw ex;
+            }
+            finally
+            {
+                AddLogFileFooter();
+                // Write Log Infos
+                File.WriteAllLines(runData.LogFile, LoggerMessages);
+            }
 
             return true;
         }
@@ -264,6 +280,8 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         private void HandleSewer(XmlNode node)
         {
+            if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+
             var oid = node.Attributes["TID"].Value;
 
             bool isMelio = false;
@@ -303,6 +321,8 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             // Collect Sections
             foreach(XmlNode node in topicNode)
             {
+                if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+
                 var className = GetNodeClassName(node.Name);
 
                 if (className == "Haltung")
@@ -347,6 +367,8 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         private void HandleWastewaterNode(XmlNode node)
         {
+            if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+
             var oid = node.Attributes["TID"].Value;
 
             bool isMelio = false;
@@ -427,6 +449,8 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             XmlNode node /* node for check */,
             List<string> listWithOIDs /* list with valid oids (not removabel) */)
         {
+            if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+
             var oid = node.Attributes["TID"].Value;
 
             if (!listWithOIDs.Contains(oid))
@@ -514,10 +538,12 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         /// <param name="removableChildNodes"></param>
         private void RemoveChildNodes(XmlNode xmlNode, List<XmlNode> removableChildNodes)
         {
+            if (xmlNode.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+
             // remove irrelevant nodes
             foreach (XmlNode removableChildNode in removableChildNodes)
             {
-                LoggerMessages.Add(string.Format(Resources.SplitLogMessageClassRemoved, removableChildNode.Name, removableChildNode.Attributes["TID"].Value));
+                LogInfo(string.Format(Resources.SplitLogMessageClassRemoved, removableChildNode.Name, removableChildNode.Attributes["TID"].Value));
                 xmlNode.RemoveChild(removableChildNode); // remove irrelevant class nodes from topic node
             }
         }

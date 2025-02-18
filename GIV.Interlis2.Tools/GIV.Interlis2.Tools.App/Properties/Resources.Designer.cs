@@ -124,7 +124,7 @@ namespace GIV.Interlis2.Tools.App.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ausführung ist ein Problem aufgetretten: [{0}]..
+        ///   Looks up a localized string similar to Bei der Ausführung ist ein Problem aufgetreten: [{0}]..
         /// </summary>
         public static string GeneralRuntimeMessage {
             get {
@@ -210,6 +210,15 @@ namespace GIV.Interlis2.Tools.App.Properties {
         public static string RadioButtonTgmelFilter {
             get {
                 return ResourceManager.GetString("RadioButtonTgmelFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speicherort der Protokolldatei: {0}.
+        /// </summary>
+        public static string StartCommandLogFile {
+            get {
+                return ResourceManager.GetString("StartCommandLogFile", resourceCulture);
             }
         }
         

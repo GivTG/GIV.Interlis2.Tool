@@ -246,8 +246,6 @@ namespace GIV.Interlis2.Tools.App.ViewModels
                     {
                         ViewLogWriteLine(Resources.EndCommandErrorMessage, controller.GetName());
                     }
-                    // Write Log Infos
-                    File.WriteAllLines(runData.LogFile, controller.LoggerMessages);
                     ViewLogWriteLine($"{Resources.LogFileMessage} {runData.LogFile}");
                 }
             }
@@ -255,6 +253,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             {
                 // ToDo #16 - Message as Dialog-BOX
                 ViewLogWriteLine(Resources.GeneralRuntimeMessage, ex.Message);
+                ViewLogWriteLine($"{Resources.LogFileMessage} {runData.LogFile}");
             }
 
             ProgressIsVisible = false;

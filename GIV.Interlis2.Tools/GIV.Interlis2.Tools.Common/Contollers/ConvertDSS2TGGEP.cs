@@ -2,6 +2,7 @@
 using GIV.Interlis2.Tools.Common.IO;
 using GIV.Interlis2.Tools.Common.Properties;
 using System;
+using System.IO;
 using System.Xml;
 
 namespace GIV.Interlis2.Tools.Common.Contollers
@@ -54,6 +55,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         public ConvertDSS2TGGEP(RunData data) : base(CONTROLLERNAME)
         {
             runData = data;
+            LogPath = data.LogFile;
             InitHelpText();
         }
 
@@ -88,24 +90,36 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             LogInfo($"{Resources.ConvertLogMessageInputFile} {runData.Input}");
             LogInfo($"{Resources.ConvertLogMessageOutputFile} {runData.Output}");
 
-            XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(runData.Input);
-
-            foreach (XmlNode xmlNode in xmlDocument.ChildNodes)
+            try
             {
-                if (xmlNode.Name == "TRANSFER")
+                XmlDocument xmlDocument = new XmlDocument();
+                xmlDocument.Load(runData.Input);
+
+                foreach (XmlNode xmlNode in xmlDocument.ChildNodes)
                 {
-                    foreach(XmlNode childNode in xmlNode.ChildNodes)
+                    if (xmlNode.Name == "TRANSFER")
                     {
-                        ReadAndChange(childNode);
+                        foreach (XmlNode childNode in xmlNode.ChildNodes)
+                        {
+                            ReadAndChange(childNode);
+                        }
                     }
                 }
+
+                XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
+                //xmlDocument.Save(runData.Output);
             }
-
-            XmlWriteHelper.WriteXmlDocument(xmlDocument, runData.Output);
-            //xmlDocument.Save(runData.Output);
-
-            AddLogFileFooter();
+            catch (Exception ex)
+            {
+                LogError(String.Format(Resources.GeneralRuntimeMessage, ex.Message));
+                throw ex;
+            }
+            finally
+            {
+                AddLogFileFooter();
+                // Write Log Infos
+                File.WriteAllLines(runData.LogFile, LoggerMessages);
+            }
 
             return true;
         }

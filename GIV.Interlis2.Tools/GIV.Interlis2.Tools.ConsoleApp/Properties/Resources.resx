@@ -144,7 +144,7 @@
     <comment>{0} Parameter Name</comment>
   </data>
   <data name="MainConsolePressAnyKeyForExit" xml:space="preserve">
-    <value>Drücke eine belibige Taste für das Beenden der Konsole</value>
+    <value>Drücke eine beliebige Taste zum Beenden der Konsole...</value>
   </data>
   <data name="MainConsoleStartCommandMessage" xml:space="preserve">
     <value>Funktion [{0}] wird gestartet...</value>
