@@ -223,7 +223,7 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Irrelevante Objekte wurden aus der Classe &apos;{0}&apos; entfernt..
+        ///   Looks up a localized string similar to Irrelevante Objekte wurden aus der Interlis-Klasse &apos;{0}&apos; entfernt..
         /// </summary>
         internal static string SplitLogMessageClassRemoved {
             get {

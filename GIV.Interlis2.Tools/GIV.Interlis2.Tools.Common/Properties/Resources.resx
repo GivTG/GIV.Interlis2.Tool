@@ -174,7 +174,7 @@
     <value>Filtert die nicht Meliorations relevanten Daten aus einer DSS 2020 Datei.</value>
   </data>
   <data name="SplitLogMessageClassRemoved" xml:space="preserve">
-    <value>Irrelevante Objekte wurden aus der Classe '{0}' entfernt.</value>
+    <value>Irrelevante Objekte wurden aus der Interlis-Klasse '{0}' entfernt.</value>
     <comment>{0} Class Name</comment>
   </data>
   <data name="SplitLogMessageClassRemovedErrorMessage" xml:space="preserve">
