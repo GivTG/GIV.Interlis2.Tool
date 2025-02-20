@@ -223,11 +223,29 @@ namespace GIV.Interlis2.Tools.Common.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Irrelevante Objektklasse entfernen: {0} [{1}].
+        ///   Looks up a localized string similar to Irrelevante Objekte wurden aus der Classe &apos;{0}&apos; entfernt..
         /// </summary>
         internal static string SplitLogMessageClassRemoved {
             get {
                 return ResourceManager.GetString("SplitLogMessageClassRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beim Entfernen der irrelevanten Objekten ist ein Problem aufgetretten..
+        /// </summary>
+        internal static string SplitLogMessageClassRemovedErrorMessage {
+            get {
+                return ResourceManager.GetString("SplitLogMessageClassRemovedErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Liste der TID&apos;s: {0}.
+        /// </summary>
+        internal static string SplitLogMessageClassRemovedTids {
+            get {
+                return ResourceManager.GetString("SplitLogMessageClassRemovedTids", resourceCulture);
             }
         }
         

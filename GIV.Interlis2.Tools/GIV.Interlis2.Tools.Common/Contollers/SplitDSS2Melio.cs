@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -108,6 +109,7 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
             // KEK - Erhaltungsereignis
             "Erhaltungsereignis",
+            "Erhaltungsereignis_AbwasserbauwerkAssoc",
             "Biol_oekol_Gesamtbeurteilung",
             "Unterhalt",
             "Stammkarte",
@@ -280,7 +282,10 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         private void HandleSewer(XmlNode node)
         {
-            if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+            if (node.Attributes["TID"] == null)
+            {
+                throw new Exception(Resources.XmlNodeWithoutTIDException);
+            }
 
             var oid = node.Attributes["TID"].Value;
 
@@ -321,7 +326,10 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             // Collect Sections
             foreach(XmlNode node in topicNode)
             {
-                if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+                if (node.Attributes["TID"] == null)
+                {
+                    throw new Exception(Resources.XmlNodeWithoutTIDException);
+                }
 
                 var className = GetNodeClassName(node.Name);
 
@@ -367,7 +375,10 @@ namespace GIV.Interlis2.Tools.Common.Contollers
 
         private void HandleWastewaterNode(XmlNode node)
         {
-            if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+            if (node.Attributes["TID"] == null)
+            {
+                throw new Exception(Resources.XmlNodeWithoutTIDException);
+            }
 
             var oid = node.Attributes["TID"].Value;
 
@@ -449,7 +460,10 @@ namespace GIV.Interlis2.Tools.Common.Contollers
             XmlNode node /* node for check */,
             List<string> listWithOIDs /* list with valid oids (not removabel) */)
         {
-            if (node.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
+            if (node.Attributes["TID"] == null)
+            {
+                throw new Exception(Resources.XmlNodeWithoutTIDException);
+            }
 
             var oid = node.Attributes["TID"].Value;
 
@@ -538,13 +552,39 @@ namespace GIV.Interlis2.Tools.Common.Contollers
         /// <param name="removableChildNodes"></param>
         private void RemoveChildNodes(XmlNode xmlNode, List<XmlNode> removableChildNodes)
         {
-            if (xmlNode.Attributes["TID"] == null) throw new Exception(Resources.XmlNodeWithoutTIDException);
-
-            // remove irrelevant nodes
-            foreach (XmlNode removableChildNode in removableChildNodes)
+            try
             {
-                LogInfo(string.Format(Resources.SplitLogMessageClassRemoved, removableChildNode.Name, removableChildNode.Attributes["TID"].Value));
-                xmlNode.RemoveChild(removableChildNode); // remove irrelevant class nodes from topic node
+                Dictionary<string /* Classname */, List<string> /* List with TID's */> removedNodes = new Dictionary<string, List<string>>();
+
+                // remove irrelevant nodes
+                foreach (XmlNode removableChildNode in removableChildNodes)
+                {
+                    if (!removedNodes.ContainsKey(removableChildNode.Name)) removedNodes.Add(removableChildNode.Name, new List<string>());
+
+                    xmlNode.RemoveChild(removableChildNode); // remove irrelevant class nodes from topic node
+
+                    removedNodes[removableChildNode.Name].Add(removableChildNode.Attributes["TID"].Value);
+
+                }
+
+                foreach (var removedNote in removedNodes)
+                {
+                    LogInfo(string.Format(Resources.SplitLogMessageClassRemoved, removedNote.Key));
+
+                    StringBuilder tidString = new StringBuilder();
+
+                    foreach (string tid in removedNote.Value)
+                    {
+                        tidString.Append($"{tid}, ");
+                    }
+
+                    LogInfo(string.Format(Resources.SplitLogMessageClassRemovedTids, tidString.ToString().Substring(0, tidString.Length - 2)));
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError(Resources.SplitLogMessageClassRemovedErrorMessage);
+                LogError(String.Format(Resources.GeneralRuntimeMessage, ex.Message));
             }
         }
 

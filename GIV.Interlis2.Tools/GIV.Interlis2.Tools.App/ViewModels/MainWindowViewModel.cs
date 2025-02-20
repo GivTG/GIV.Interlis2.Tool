@@ -251,7 +251,7 @@ namespace GIV.Interlis2.Tools.App.ViewModels
             }
             catch (Exception ex)
             {
-                // ToDo #16 - Message as Dialog-BOX
+                // #16 - Message as Dialog-BOX
                 ViewLogWriteLine(Resources.GeneralRuntimeMessage, ex.Message);
                 ViewLogWriteLine($"{Resources.LogFileMessage} {runData.LogFile}");
             }

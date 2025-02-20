@@ -21,8 +21,6 @@ namespace GIV.Interlis2.Tools.Domain
             {
                 switch(argument)
                 {
-                    // ToDo: Check missing index in Array
-                    // ToDo: Check next value begin without leading -- or -
                     case "--type":
                     case "-t":
                         runData.SetType(arguments[i + 1]);
